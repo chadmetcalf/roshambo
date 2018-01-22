@@ -1,0 +1,27 @@
+%h1 Listing games
+
+%table.table.table-striped.table-hover
+  %thead
+    %tr
+      %th Challenger
+      %th Result
+      %th Server
+      %th Challenger
+      %th
+      %th
+      %th
+
+  %tbody
+    - @games.each do |game|
+      %tr
+        %td= game.challenger
+        %td= game.result['result']
+        %td= game.result['server_choice']
+        %td= game.result['your_choice']
+        %td= link_to 'Show', game, class: 'btn btn-outline-primary btn-sm'
+        %td= # link_to 'Edit', edit_game_path(game), class: 'btn btn-primary'
+        %td= #link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+
+%br
+
+-# = link_to 'New Game', new_game_path, class: 'btn btn-success'
