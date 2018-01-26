@@ -1,9 +1,18 @@
 module Api
   class ChallengerApiController < ActionController::Base
+    include Pundit
+
     include Knock::Authenticable
+    protect_from_forgery
+
+    rescue_from ActionController::ParameterMissing, with: :bad_request
 
     before_action :authenticate_challenger
     before_action :skip_session
+
+    def bad_request(e)
+      render status: :bad_request, json: {error: e.message}
+    end
 
     # JWT: Knock defines it's own current_challenger method unless one is already
     # defined. As controller class is cached between requests, this method
@@ -12,17 +21,13 @@ module Api
     # Knock does not reimplement it anymore but we have to do its thing
     # manually.
     def current_challenger
-      if token
-        @_current_challenger ||= begin
-          Knock::AuthToken.new(token: token).entity_for(Challenger)
-        rescue
-          nil
-        end
+      @_current_challenger ||= if token
+        Knock::AuthToken.new(token: token).entity_for(Challenger)
       else
         super
       end
     end
-
+    alias_method :pundit_user, :current_challenger
     private
 
     def authenticate_challenger

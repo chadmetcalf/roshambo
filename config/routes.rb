@@ -3,10 +3,9 @@ Rails.application.routes.draw do
   namespace :api do
     post 'challenger_token' => 'challenger_token#create'
     resources :games do
-      resources :ro, only: :create
-      resources :sham, only: :create
-      resources :bo, only: :create
-      post :shoot, to: 'shoot#create'
+      member do
+        post '/:game_state', to: 'game_state#create'
+      end
     end
   end
 

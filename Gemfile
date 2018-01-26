@@ -37,6 +37,7 @@ gem 'haml-rails'
 
 
 group :development, :test do
+  gem 'faker'
   gem 'pry-rails'
   gem 'pry-remote'
 end
@@ -45,6 +46,7 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'letter_opener_web'
   gem 'web-console', '>= 3.3.0'
+  gem 'bulk_insert'
 end
 
 group :test do

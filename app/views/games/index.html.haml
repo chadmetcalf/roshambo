@@ -5,8 +5,8 @@
     %tr
       %th Challenger
       %th Result
-      %th Server
-      %th Challenger
+      %th Server Choice
+      %th Challenger Choice
       %th
       %th
       %th
@@ -17,7 +17,7 @@
         %td= game.challenger
         %td= game.result['result']
         %td= game.result['server_choice']
-        %td= game.result['your_choice']
+        %td= game.result['challenger_choice']
         %td= link_to 'Show', game, class: 'btn btn-outline-primary btn-sm'
         %td= # link_to 'Edit', edit_game_path(game), class: 'btn btn-primary'
         %td= #link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'

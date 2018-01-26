@@ -1,13 +1,11 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
 
-  # GET /games
   # GET /games.json
   def index
     @games = Game.all
   end
 
-  # GET /games/1
   # GET /games/1.json
   def show
   end
@@ -21,7 +19,6 @@ class GamesController < ApplicationController
   def edit
   end
 
-  # POST /games
   # POST /games.json
   def create
     @game = Game.new(game_params)
@@ -35,7 +32,6 @@ class GamesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /games/1
   # PATCH/PUT /games/1.json
   def update
     respond_to do |format|
@@ -47,7 +43,6 @@ class GamesController < ApplicationController
     end
   end
 
-  # DELETE /games/1
   # DELETE /games/1.json
   def destroy
     @game.destroy

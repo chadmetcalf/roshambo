@@ -36,7 +36,8 @@ ActiveRecord::Schema.define(version: 20180121225023) do
 
   create_table "games", force: :cascade do |t|
     t.bigint "challenger_id"
-    t.jsonb "result"
+    t.string "state"
+    t.jsonb "result", default: {}
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["challenger_id"], name: "index_games_on_challenger_id"

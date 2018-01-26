@@ -11,7 +11,7 @@ class ApplicationPolicy
   end
 
   def show?
-    scope.where(:id => record.id).exists?
+    scope.where(id: record.id).exists?
   end
 
   def create?
@@ -47,7 +47,7 @@ class ApplicationPolicy
     end
 
     def resolve
-      scope
+      scope.merge(user.games)
     end
   end
 end
