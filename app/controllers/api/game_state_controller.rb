@@ -11,10 +11,9 @@ module Api
       end
 
       if @game.send state_method
-        render json: @games, status: :ok
+        render json: @game, status: :ok
       else
         render json: games_errors, status: :unprocessable_entity
-      end
       end
     end
 

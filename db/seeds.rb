@@ -23,9 +23,9 @@ print "Creating Challenger: "
 puts "\n"
 print "Creating Games: "
 c_ids = Challenger.ids
-1000.times do
+10.times do
 Game.bulk_insert do |worker|
-  (1_000).times do |i|
+  (10).times do |i|
     begin
       print "." if i%200_000 == 0
       g_state = Game.states.sample
