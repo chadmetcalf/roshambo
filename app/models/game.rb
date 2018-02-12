@@ -32,7 +32,7 @@ class Game < ApplicationRecord
   end
 
   def server_choice
-    @_server_choice ||= result.fetch(:server_choice, %w(rock paper scissors).sample)
+    @_server_choice ||= result.fetch(:server_choice, %w(rock paper paper scissors).sample)
   end
 
   def build_result

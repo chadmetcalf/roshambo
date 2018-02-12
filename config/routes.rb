@@ -7,6 +7,9 @@ Rails.application.routes.draw do
         post '/:game_state', to: 'game_state#create'
       end
     end
+    namespace :v2 do
+      resources :games
+    end
   end
 
   devise_for :challengers
